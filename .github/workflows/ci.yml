@@ -9,4 +9,6 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Workflow triggered
+      - run: echo "Workflow triggered"
+      - name: Print Event Object
+        run: echo '${{ toJson(github.event) }}'
