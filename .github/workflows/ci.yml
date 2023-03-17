@@ -1,0 +1,12 @@
+name: CI
+env:
+  owner: foo
+  repo: GithubActionWebhookExample
+on:
+  repository_dispatch:
+    types: [update-docs]
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Workflow triggered"
