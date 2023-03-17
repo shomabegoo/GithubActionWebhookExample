@@ -7,7 +7,7 @@ on:
     types: [update-docs]
 jobs:
   update:
-    permissions: write-all
+    permissions: read-all|write-all
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Workflow triggered"
+      - run: echo "Workflow triggered
