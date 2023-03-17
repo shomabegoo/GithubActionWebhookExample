@@ -6,8 +6,8 @@ on:
   repository_dispatch:
     types: [update-docs]
 jobs:
-  permissions: write-all
   update:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - run: echo "Workflow triggered"
