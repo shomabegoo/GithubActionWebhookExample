@@ -6,6 +6,7 @@ on:
   repository_dispatch:
     types: [update-docs]
 jobs:
+  permissions: write-all
   update:
     runs-on: ubuntu-latest
     steps:
