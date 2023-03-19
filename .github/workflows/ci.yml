@@ -27,3 +27,4 @@ jobs:
           echo '${{ github.event.client_payload.version }}' >> README.md
           git add README.md
           git commit -m "Update README.md" || echo "No changes to commit"
+          git push origin
