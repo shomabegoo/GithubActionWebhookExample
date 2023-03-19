@@ -3,6 +3,7 @@ env:
   owner: foo
   repo: GithubActionWebhookExample
 on:
+  release:
   repository_dispatch:
     types: [update-docs]
 jobs:
