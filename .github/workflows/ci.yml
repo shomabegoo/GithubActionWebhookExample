@@ -4,7 +4,8 @@ env:
   repo: GithubActionWebhookExample
 on:
   release:
-    - published
+    types:
+      - published
   repository_dispatch:
     types: [update-docs]
 jobs:
