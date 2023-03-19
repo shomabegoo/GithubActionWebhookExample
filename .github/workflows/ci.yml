@@ -15,3 +15,10 @@ jobs:
       - run: echo "Workflow triggered"
       - name: Print Event Object
         run: echo '${{ toJson(github) }}'
+      - name: Commit Changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          echo '${{ github.event.client_payload.version }}' >> README.md
+          git add README.md
+          git commit -m "Update README.md" || echo "No changes to commit"
