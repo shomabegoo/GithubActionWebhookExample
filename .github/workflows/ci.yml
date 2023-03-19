@@ -4,6 +4,7 @@ env:
   repo: GithubActionWebhookExample
 on:
   release:
+    - published
   repository_dispatch:
     types: [update-docs]
 jobs:
@@ -12,4 +13,4 @@ jobs:
     steps:
       - run: echo "Workflow triggered"
       - name: Print Event Object
-        run: echo '${{ toJson(github.event) }}'
+        run: echo '${{ toJson(github) }}'
