@@ -6,6 +6,7 @@ on:
   release:
     types:
       - published
+  workflow_dispatch: {}
   repository_dispatch:
     types: [update-docs]
 jobs:
@@ -24,7 +25,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          echo '${{ github.event.client_payload.version }}' >> README.md
+          echo '${{ github.event.client_payload.version }}\n' >> README.md
           git add README.md
           git commit -m "Update README.md" || echo "No changes to commit"
           git push origin
