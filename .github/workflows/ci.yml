@@ -23,8 +23,8 @@ jobs:
           fetch-depth: '0'
       - name: Commit Changes
         run: |
-          PACKAGE_NAME=$('${{ github.event.client_payload.package_name }}')
-          PACKAGE_VERSION=$('${{ github.event.client_payload.package_version }}')
+          PACKAGE_NAME=$(echo '${{ github.event.client_payload.package_name }}')
+          PACKAGE_VERSION=$(echo '${{ github.event.client_payload.package_version }}')
           echo $PACKAGE_NAME
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
