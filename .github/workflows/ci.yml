@@ -28,7 +28,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
           package_name="${{ github.event.client_payload.package_name }}"
           package_version="${{ github.event.client_payload.package_version }}"
-          yarn add "$package_name@$package_version"
+          yarn add "$package_name@$package_version" --no-commit-hooks
           git add package.json
           commit_message="Update $package_name to $package_version"
           git commit -m "$commit_message" || echo "No changes to commit"
