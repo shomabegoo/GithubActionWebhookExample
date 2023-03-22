@@ -36,9 +36,11 @@ jobs:
         uses: peter-evans/create-pull-request@v4.2.4
         with:
           body: |-
-            The new version of ${{ github.event.client_payload.package_name }} was released. Let's update the zio.dev 
-            to reflect the latest docs. 
+            The new version of ${{ github.event.client_payload.package_name }} was released.
+            Let's update the zio.dev to reflect the latest docs. 
           branch: zio-sbt/update-docs/${{ github.event.client_payload.package_name }}
-          commit-message: Update ${{ github.event.client_payload.package_name }} Docs to ${{ github.event.client_payload.package_version }}
+          commit-message: Update ${{ github.event.client_payload.package_name }} docs
+            to ${{ github.event.client_payload.package_version }}
           delete-branch: true
-          title: Update ${{ github.event.client_payload.package_name }} Docs to ${{ github.event.client_payload.package_version }}
+          title: Update ${{ github.event.client_payload.package_name }} docs
+            to ${{ github.event.client_payload.package_version }}
