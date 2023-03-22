@@ -25,6 +25,7 @@ jobs:
         run: |
           PACKAGE_NAME='${{ github.event.client_payload.package_name }}'
           PACKAGE_VERSION='${{ github.event.client_payload.package_version }}'
+          echo $PACKAGE_NAME
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           echo '${{ PACKAGE_NAME }}@${{ PACKAGE_VERSION }}\n' >> README.md
