@@ -23,9 +23,11 @@ jobs:
           fetch-depth: '0'
       - name: Commit Changes
         run: |
+          PACKAGE_NAME='${{ github.event.client_payload.package_name }}'
+          PACKAGE_VERSION='${{ github.event.client_payload.package_version }}'
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          echo '${{ github.event.client_payload.version }}\n' >> README.md
+          echo '${{ PACKAGE_NAME }}@${{ PACKAGE_VERSION }}\n' >> README.md
           git add README.md
           git commit -m "Update README.md" || echo "No changes to commit"
       - name: Create Pull Request
