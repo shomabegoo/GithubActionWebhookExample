@@ -1,0 +1,17 @@
+name: Auto-approve khajavi's PRs
+
+on: pull_request_target
+
+jobs:
+  auto-approve-renovate-prs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v3.5.0
+        with:
+          fetch-depth: '0'
+      - name: Approve PR
+        run: gh pr review --approve ${{ github.event.number }}
+        if: github.actor == 'khajavi'
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
