@@ -13,5 +13,5 @@ jobs:
       - name: Approve PR
         run: gh pr review --approve ${{ github.event.number }}
         if: github.actor == 'khajavi'
-        with:
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
+        env:
+          GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
