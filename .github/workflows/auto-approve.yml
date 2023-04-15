@@ -6,10 +6,7 @@ jobs:
   auto-approve-renovate-prs:
     runs-on: ubuntu-latest
     steps:
-      - name: Git Checkout
-        uses: actions/checkout@v3.5.0
-        with:
-          fetch-depth: '0'
+      - run: git fetch --all
       - name: Approve PR
         run: gh pr review --approve ${{ github.event.number }}
         if: github.actor == 'khajavi'
